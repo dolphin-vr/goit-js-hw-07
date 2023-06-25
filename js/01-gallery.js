@@ -1,13 +1,5 @@
 import { galleryItems } from './gallery-items.js';
-// Change code below this line
-// const galleryItems = [
-//    {
-//      preview:
-//        'https://cdn.pixabay.com/photo/2019/05/14/16/43/rchids-4202820__480.jpg',
-//      original:
-//        'https://cdn.pixabay.com/photo/2019/05/14/16/43/rchids-4202820_1280.jpg',
-//      description: 'Hokkaido Flower',
-//    },
+
 const ulRef = document.querySelector('.gallery');
 const galleryMarkup = galleryItems.map(({preview, original, description})=>
 `<li class="gallery__item">
@@ -21,6 +13,7 @@ ulRef.addEventListener('click', largePicView);
 
 function largePicView(ev){
    ev.preventDefault();
+
    const opts = {
 	onShow: (instance) => {
       document.addEventListener('keydown', onEsc);
@@ -34,8 +27,6 @@ function largePicView(ev){
    };
    const modalPicView = basicLightbox.create(`
    <img src="${ev.target.dataset.source}" alt="${ev.target.alt}">`, opts);
-   
-// 
 
    modalPicView.show();
 }
